@@ -3,7 +3,6 @@
 from flask import Flask,request,render_template
 from feature_extractor import FeatureExtractor
 import os,shutil,sqlite3,pickle,time
-from sys import getsizeof
 from datetime import datetime
 from pathlib import Path
 from PIL import Image
