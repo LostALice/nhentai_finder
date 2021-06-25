@@ -42,11 +42,7 @@ def locate(query):
         if len(score) > 20:
             score = score[:20]
 
-@app.route("/")
-def home():
-    return render_template("index0.html")
-
-@app.route("/nh", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         file = request.files["query_img"]
