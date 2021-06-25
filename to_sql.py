@@ -1,7 +1,7 @@
-#test
+#Code by AkinoAlice @ Tyrant_Rex
 
+import sqlite3,os,time,shutil
 from pathlib import Path
-import sqlite3,os,time
 import numpy as np
 
 conn = sqlite3.connect("img_data.db" , isolation_level=None)
@@ -23,11 +23,15 @@ def to_db(code):
             f = open("error.txt", "a+")
             f.write(f"{code} | {feature_path}")
             f.close()
+            continue
 
         codepath = feature_path.stem.replace("-", "/")
         cursor.execute(f"insert into nhentai (feature,code,path) values (?,{code},'{codepath}')",(x,))
     end = str(round(time.time() - start, 5))
     conn.commit()
+    if i == 0:
+        shutil.rmtree(Path(f"./static/feature/{code}"), ignore_errors=True)
+        
     print(f"Finish:{code} | Time:{end} | Page(s):{i}")
 
 def check_(code):
@@ -36,13 +40,11 @@ def check_(code):
         to_db(code)
     else:
         print(f"Exist:{code}")
+        shutil.rmtree(Path(f"./static/feature/{code}"), ignore_errors=True)
     conn.commit()
 
 if __name__ == "__main__":
     for code in os.listdir(Path("./static/feature")):
         check_(code)
 
-
 conn.close()
-
-
