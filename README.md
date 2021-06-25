@@ -1,4 +1,4 @@
-# nhentai_findera<br/>
+# nhentai_finder<br/>
 #己中止項目 Canceled Project<br/>
 #pip install -r req.txt<br/>
 #python3 all_in_one.py
