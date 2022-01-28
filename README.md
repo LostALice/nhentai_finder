@@ -1,4 +1,4 @@
-nhentai_finder 己中止項目 Canceled Project<br/>
+reverse_comic_search_engine 己中止項目 Canceled Project<br/>
 =========================================<br/>
 #env python 3.7.0<br/>
 pip3 install -r req.txt<br/>
